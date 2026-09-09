@@ -4,7 +4,10 @@
  * Module dependencies.
  */
 
-var app = require('../app');
+
+const express = require("express");
+
+var app  = express();
 var debug = require('debug')('backend:server');
 var http = require('http');
 

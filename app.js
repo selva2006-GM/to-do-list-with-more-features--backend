@@ -6,14 +6,14 @@ const app = express();
 
 
 const index = require("./routes/index.js");
-
+const createtask = require("./routes/createTask.js");
 
 app.use(cors())
 app.use(express.json())
 
 
 app.use("/", index);
-
+app.use("/", createtask);
 const PORT = process.env.PORT || 5000;
 
 

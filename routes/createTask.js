@@ -5,9 +5,9 @@ const router = express.Router();
 
 
 
-router.get("/createtask" ,async (req , res)=>{
+router.post("/createtask" ,async (req , res)=>{
     console.log(req.body);
-    
+
 })
 
 

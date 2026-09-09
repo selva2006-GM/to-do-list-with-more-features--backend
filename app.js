@@ -5,15 +5,17 @@ const cors = require("cors");
 const app = express();
 
 
-const index = require("./routes/index.js");
 const createtask = require("./routes/createTask.js");
+const user = require("./routes/users.js");
+
 
 app.use(cors())
 app.use(express.json())
 
 
-app.use("/", index);
+
 app.use("/", createtask);
+app.use("/", user);
 const PORT = process.env.PORT || 5000;
 
 

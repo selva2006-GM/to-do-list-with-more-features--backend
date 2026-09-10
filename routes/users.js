@@ -70,4 +70,15 @@ router.post("/signup", async (req, res) => {
     }
 });
 
+
+router.get("/login", async (req, res)=>{
+
+    const result = await pool.query("Select* from users");
+    console.log(result);
+
+    res.status(200).json({
+        Message :  result["rows"]
+    })
+})
 module.exports = router;
+

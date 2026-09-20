@@ -11,13 +11,4 @@ const pool = new Pool({
     connectionString: process.env.NEONDB
 });
 
-pool.query("SELECT NOW()")
-    .then((result) => {
-        console.log("Connected to Neon PostgreSQL");
-        console.log("Database Time:", result.rows[0].now);
-    })
-    .catch((error) => {
-        console.error("Neon connection failed:", error.message);
-    });
-
 module.exports = pool;

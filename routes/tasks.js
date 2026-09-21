@@ -178,4 +178,32 @@ router.delete("/:id", authenticateToken, async (req, res) => {
 });
 
 
+
+router.get("/rank", async (req, res) => {
+    try {
+        const result = await pool.query(`
+            SELECT
+                ROW_NUMBER() OVER (
+                    ORDER BY tacker_score DESC
+                ) AS rank,
+                user_id,
+                username,
+                tacker_score
+            FROM tracker_score
+            ORDER BY tacker_score DESC
+            LIMIT 10
+        `);
+
+        res.status(200).json({
+            ranks: result.rows
+        });
+
+    } catch (error) {
+        console.error("RANK TASK ERROR:", error);
+
+        res.status(500).json({
+            message: "Failed to fetch leaderboard"
+        });
+    }
+});
 module.exports = router;

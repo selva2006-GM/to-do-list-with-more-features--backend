@@ -1,6 +1,6 @@
 const express = require("express");
 const cors = require("cors");
-const ratelimit = require("express-rate-limit")
+const rateLimit = require("express-rate-limit")
 
 
 const app = express();
